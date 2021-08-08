@@ -86,7 +86,7 @@ class PageMultiFactor extends InternalPageBase
                     SessionAlert::success('Enabled YubiKey OTP.');
 
                     $scratchProvider = new ScratchTokenCredentialProvider($database, $this->getSiteConfiguration());
-                    if($scratchProvider->getRemaining($currentUser->getId()) < 3) {
+                    if ($scratchProvider->getRemaining($currentUser->getId()) < 3) {
                         $scratchProvider->setCredential($currentUser, 2, null);
                         $tokens = $scratchProvider->getTokens();
                         $this->assign('tokens', $tokens);
@@ -188,7 +188,7 @@ class PageMultiFactor extends InternalPageBase
                         SessionAlert::success('Enabled TOTP.');
 
                         $scratchProvider = new ScratchTokenCredentialProvider($database, $this->getSiteConfiguration());
-                        if($scratchProvider->getRemaining($currentUser->getId()) < 3) {
+                        if ($scratchProvider->getRemaining($currentUser->getId()) < 3) {
                             $scratchProvider->setCredential($currentUser, 2, null);
                             $tokens = $scratchProvider->getTokens();
                             $this->assign('tokens', $tokens);
@@ -243,7 +243,8 @@ class PageMultiFactor extends InternalPageBase
         $this->deleteCredential($database, $currentUser, $otpCredentialProvider, $factorType);
     }
 
-    protected function enableWebAuthn() {
+    protected function enableWebAuthn()
+    {
         $database = $this->getDatabase();
         $currentUser = User::getCurrent($database);
 

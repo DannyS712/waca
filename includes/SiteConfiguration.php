@@ -63,6 +63,8 @@ class SiteConfiguration
     private $useOAuthSignup = true;
     private $oauthBaseUrl;
     private $oauthConsumerToken;
+    /** @var array */
+    private $oauthLegacyConsumerTokens;
     private $oauthConsumerSecret;
     private $oauthIdentityGraceTime = '24 hours';
     private $oauthMediaWikiCanonicalServer = 'http://en.wikipedia.org';
@@ -94,6 +96,7 @@ class SiteConfiguration
     private $commonEmailDomains = [];
     private $banMaxIpBlockRange = [4 => 20, 6 => 48];
     private $banMaxIpRange = [4 => 16, 6 => 32];
+    private $jobQueueBatchSize = 10;
 
     /**
      * Gets the base URL of the tool
@@ -982,7 +985,7 @@ class SiteConfiguration
         $this->totpEncryptionKey = $totpEncryptionKey;
 
         return $this;
-}
+    }
 
     /**
      * @return string
@@ -1004,14 +1007,15 @@ class SiteConfiguration
         return $this;
     }
 
-    public function isRegistrationAllowed() : bool
+    public function isRegistrationAllowed(): bool
     {
         return $this->registrationAllowed;
     }
 
-    public function setRegistrationAllowed(bool $registrationAllowed) : SiteConfiguration
+    public function setRegistrationAllowed(bool $registrationAllowed): SiteConfiguration
     {
         $this->registrationAllowed = $registrationAllowed;
+
         return $this;
     }
 
@@ -1033,7 +1037,7 @@ class SiteConfiguration
         $this->cspReportUri = $cspReportUri;
 
         return $this;
-}
+    }
 
     /**
      * @return int
@@ -1053,7 +1057,7 @@ class SiteConfiguration
         $this->resourceCacheEpoch = $resourceCacheEpoch;
 
         return $this;
-}
+    }
 
     /**
      * @return array
@@ -1105,7 +1109,7 @@ class SiteConfiguration
         $this->banMaxIpRange = $banMaxIpRange;
 
         return $this;
-}
+    }
 
     /**
      * @return int[]
@@ -1114,4 +1118,44 @@ class SiteConfiguration
     {
         return $this->banMaxIpRange;
     }
+
+    /**
+     * @param array $oauthLegacyConsumerTokens
+     *
+     * @return SiteConfiguration
+     */
+    public function setOauthLegacyConsumerTokens(array $oauthLegacyConsumerTokens): SiteConfiguration
+    {
+        $this->oauthLegacyConsumerTokens = $oauthLegacyConsumerTokens;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOauthLegacyConsumerTokens(): array
+    {
+        return $this->oauthLegacyConsumerTokens;
+    }
+
+    /**
+     * @return int
+     */
+    public function getJobQueueBatchSize(): int
+    {
+        return $this->jobQueueBatchSize;
+    }
+
+    /**
+     * @param int $jobQueueBatchSize
+     *
+     * @return SiteConfiguration
+     */
+    public function setJobQueueBatchSize(int $jobQueueBatchSize): SiteConfiguration
+    {
+        $this->jobQueueBatchSize = $jobQueueBatchSize;
+
+        return $this;
+}
 }

@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "91ffeb011feb24667f49d01da427ff58",
@@ -300,9 +300,7 @@
             "version": "4.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/dropbox/zxcvbn/archive/v4.4.2.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/dropbox/zxcvbn/archive/v4.4.2.zip"
             },
             "type": "library"
         },
@@ -311,9 +309,7 @@
             "version": "2.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/drvic10k/bootstrap-sortable/archive/2.1.0.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/drvic10k/bootstrap-sortable/archive/2.1.0.zip"
             },
             "type": "library"
         },
@@ -1405,16 +1401,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v3.1.38",
+            "version": "v3.1.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "63b3c0aed0f614880cda21a5c08c606e97b489bb"
+                "reference": "e27da524f7bcd7361e3ea5cdfa99c4378a7b5419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/63b3c0aed0f614880cda21a5c08c606e97b489bb",
-                "reference": "63b3c0aed0f614880cda21a5c08c606e97b489bb",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e27da524f7bcd7361e3ea5cdfa99c4378a7b5419",
+                "reference": "e27da524f7bcd7361e3ea5cdfa99c4378a7b5419",
                 "shasum": ""
             },
             "require": {
@@ -1458,7 +1454,13 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2021-01-08T14:05:42+00:00"
+            "support": {
+                "forum": "http://www.smarty.net/forums/",
+                "irc": "irc://irc.freenode.org/smarty",
+                "issues": "https://github.com/smarty-php/smarty/issues",
+                "source": "https://github.com/smarty-php/smarty/tree/v3.1.39"
+            },
+            "time": "2021-02-17T21:57:51+00:00"
         },
         {
             "name": "spomky-labs/base64url",
@@ -4234,5 +4236,6 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }
